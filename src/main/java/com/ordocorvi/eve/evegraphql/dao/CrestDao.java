@@ -25,6 +25,7 @@ public class CrestDao {
 		
 		ArrayList<Order> orders = new ArrayList<>();
 		orders.addAll(new ArrayList<>(Arrays.asList(entity.getBody())));
+		//TODO do this with a thread pool or something. Do I make it part of the bean to limit the total number of threads per the application or do I make it method scoped so that each hit can have up to a number of threads.
 		for (int i = 2 ; i <= int_pages ; i++) {
 			ResponseEntity<Order[]> tempEntity = restTemplate.exchange("https://esi.evetech.net/latest/markets/" + id + "/orders/?datasource=tranquility&order_type=all&page=" + i, HttpMethod.GET, null, Order[].class);
 			orders.addAll(new ArrayList<>(Arrays.asList(tempEntity.getBody())));
