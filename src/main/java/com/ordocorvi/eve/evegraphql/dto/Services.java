@@ -1,0 +1,31 @@
+package com.ordocorvi.eve.evegraphql.dto;
+
+public enum Services {
+	bounty_missions,
+	assasination_missions,
+	courier_missions,
+	interbus,
+	reprocessing_plant,
+	refinery,
+	market,
+	black_market,
+	stock_exchange,
+	cloning,
+	surgery,
+	dna_therapy,
+	repair_facilities,
+	factory,
+	labratory,
+	gambling,
+	fitting,
+	paintshop,
+	news,
+	storage,
+	insurance,
+	docking,
+	office_rental,
+	jump_clone_facility,
+	loyalty_point_store,
+	navy_offices,
+	security_offices
+}
