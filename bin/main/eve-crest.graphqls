@@ -10,7 +10,7 @@ type Query{
 type Order{
 	duration : Int
 	is_buy_order : Boolean
-	issued : Int
+	issued : String
 	location : Station
 	min_volume : Int
 	order_id : ID
@@ -41,7 +41,7 @@ type Corporation{
 	alliance_id : Alliance
 	ceo : Character
 	creator_id : Character
-	date_founded : Int
+	date_founded : String
 	description : String
 	faction : Faction
 	home_station_id : Station
@@ -57,7 +57,7 @@ type Corporation{
 type Alliance{
 	creator_corporation : Corporation
 	creator : Character
-	date_founded : Int
+	date_founded : String
 	executor_corporation : Corporation
 	faction : Faction
 	name : String
@@ -449,15 +449,15 @@ enum Range{
 	station
 	region
 	solarsystem
-	range_1
-	range_2
-	range_3
-	range_4
-	range_5
-	range_10
-	range_20
-	range_30
-	range_40
+	1
+	2
+	3
+	4
+	5
+	10
+	20
+	30
+	40
 }
 
 schema{

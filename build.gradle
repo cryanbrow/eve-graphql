@@ -29,11 +29,13 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
 	runtime 'com.graphql-java-kickstart:voyager-spring-boot-starter:5.10.0'
+	runtime 'com.graphql-java-kickstart:altair-spring-boot-starter:5.10.0'
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
 	implementation 'com.graphql-java:graphql-java-tools:5.2.4'
 	implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:5.10.0'
 	compileOnly 'org.projectlombok:lombok:1.18.8'
 	annotationProcessor 'org.projectlombok:lombok:1.18.8'
 }

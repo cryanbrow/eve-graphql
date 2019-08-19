@@ -14,7 +14,7 @@ public class Corporation {
 	private Alliance alliance_id;
 	private com.ordocorvi.eve.evegraphql.dto.Character ceo;
 	private com.ordocorvi.eve.evegraphql.dto.Character creator_id;
-	private Long date_founded;
+	private String date_founded;
 	private String description;
 	private Faction faction;
 	private Station home_station_id;

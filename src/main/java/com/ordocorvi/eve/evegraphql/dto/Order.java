@@ -13,7 +13,7 @@ import lombok.ToString;
 public class Order {
 	private int duration;
 	private boolean is_buy_order;
-	private Long issued;
+	private String issued;
 	private Station location;
 	private int min_volume;
 	private long order_id;

@@ -13,7 +13,7 @@ import lombok.ToString;
 public class Alliance {
 	private Corporation creator_corporation;
 	private Character creator;
-	private Long date_founded;
+	private String date_founded;
 	private Corporation executor_corporation;
 	private Faction faction;
 	private String name;
