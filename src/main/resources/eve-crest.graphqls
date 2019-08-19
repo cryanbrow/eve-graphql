@@ -12,12 +12,15 @@ type Order{
 	is_buy_order : Boolean
 	issued : String
 	location : Station
+	location_id : Int
 	min_volume : Int
 	order_id : ID
 	price : Float
 	range : Range
 	system : System
+	system_id : Int
 	item_type : ItemType
+	type_id : Int
 	volume_remain : Int
 	volume_total : Int
 }
@@ -242,13 +245,18 @@ type Faction{
 
 type System{
 	constellation : Constellation
+	constellation_id : Int
 	name : String
-	planets : [Planet]
+	planets : [Int]
+	planets_details : [Planet]
 	position : Position
 	security_class : String
 	star : Star
-	stargates : [Stargate]
-	stations : [Station]
+	star_id : Int
+	stargates : [Int]
+	stargates_details : [Stargate]
+	stations : [Int]
+	stations_details : [Station]
 	id : ID
 }
 
