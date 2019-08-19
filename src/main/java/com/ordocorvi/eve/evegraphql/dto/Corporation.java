@@ -1,7 +1,5 @@
 package com.ordocorvi.eve.evegraphql.dto;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
