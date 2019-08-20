@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.ordocorvi.eve.evegraphql.dto.Constellation;
 import com.ordocorvi.eve.evegraphql.dto.ItemType;
 import com.ordocorvi.eve.evegraphql.dto.Moon;
 import com.ordocorvi.eve.evegraphql.dto.Order;
@@ -71,6 +72,15 @@ public class CrestDao {
 		ResponseEntity<ItemType> entity = restTemplate.exchange(
 				"https://esi.evetech.net/latest/universe/types/" + type_id + "/", HttpMethod.GET, null,
 				ItemType.class);
+		log.info("Resolving Item Type: " + entity.getBody().getName());
+		return entity.getBody();
+	}
+	
+	@Cacheable("constellatioon")
+	public Constellation getConstellationById(long constellation_id) {
+		ResponseEntity<Constellation> entity = restTemplate.exchange(
+				"https://esi.evetech.net/latest/universe/constellations/" + constellation_id + "/", HttpMethod.GET, null,
+				Constellation.class);
 		log.info("Resolving Item Type: " + entity.getBody().getName());
 		return entity.getBody();
 	}
