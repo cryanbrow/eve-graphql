@@ -247,7 +247,7 @@ type System{
 	constellation : Constellation
 	constellation_id : Int
 	name : String
-	planets : [Int]
+	planets : [PlanetDefinition]
 	planets_details : [Planet]
 	position : Position
 	security_class : String
@@ -262,7 +262,7 @@ type System{
 
 type PlanetDefinition{
 	planet_id : Int
-	moons : Int
+	moons : [Int]
 }
 
 type Constellation{

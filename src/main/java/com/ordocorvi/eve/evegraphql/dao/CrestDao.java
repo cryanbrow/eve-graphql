@@ -10,11 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.ordocorvi.eve.evegraphql.dto.ItemType;
+import com.ordocorvi.eve.evegraphql.dto.Moon;
 import com.ordocorvi.eve.evegraphql.dto.Order;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Component @Slf4j
+@Component
+@Slf4j
 public class CrestDao {
 	private RestTemplate restTemplate = new RestTemplate();
 
@@ -32,22 +35,42 @@ public class CrestDao {
 		// TODO do this with a thread pool or something. Do I make it part of the bean
 		// to limit the total number of threads per the application or do I make it
 		// method scoped so that each hit can have up to a number of threads.
-		/*
-		 * for (int i = 2; i <= int_pages; i++) { ResponseEntity<Order[]> tempEntity =
-		 * restTemplate.exchange( "https://esi.evetech.net/latest/markets/" + id +
-		 * "/orders/?datasource=tranquility&order_type=all&page=" + i, HttpMethod.GET,
-		 * null, Order[].class); orders.addAll(new
-		 * ArrayList<>(Arrays.asList(tempEntity.getBody()))); }
-		 */
+
+		for (int i = 2; i <= int_pages; i++) {
+			ResponseEntity<Order[]> tempEntity = restTemplate.exchange(
+					"https://esi.evetech.net/latest/markets/" + id
+							+ "/orders/?datasource=tranquility&order_type=all&page=" + i,
+					HttpMethod.GET, null, Order[].class);
+			orders.addAll(new ArrayList<>(Arrays.asList(tempEntity.getBody())));
+		}
 
 		return orders;
 	}
 
-    @Cacheable("system")
+	@Cacheable("system")
 	public com.ordocorvi.eve.evegraphql.dto.System getSystemById(long system_id) {
 		// TODO remove this hardcoded crap. Also String concat
-		ResponseEntity<com.ordocorvi.eve.evegraphql.dto.System> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/systems/" + system_id + "/", HttpMethod.GET, null, com.ordocorvi.eve.evegraphql.dto.System.class);
+		ResponseEntity<com.ordocorvi.eve.evegraphql.dto.System> entity = restTemplate.exchange(
+				"https://esi.evetech.net/latest/universe/systems/" + system_id + "/", HttpMethod.GET, null,
+				com.ordocorvi.eve.evegraphql.dto.System.class);
 		log.info("Resolving System: " + entity.getBody().getName());
+		return entity.getBody();
+	}
+	
+	public Moon getMoonById(long moon_id) {
+		ResponseEntity<Moon> entity = restTemplate.exchange(
+				"https://esi.evetech.net/latest/universe/moons/" + moon_id + "/", HttpMethod.GET, null,
+				Moon.class);
+		log.info("Resolving Moon: " + entity.getBody().getName());
+		return entity.getBody();
+	}
+	
+	@Cacheable("item_type")
+	public ItemType getItemTypeById(long type_id) {
+		ResponseEntity<ItemType> entity = restTemplate.exchange(
+				"https://esi.evetech.net/latest/universe/types/" + type_id + "/", HttpMethod.GET, null,
+				ItemType.class);
+		log.info("Resolving Item Type: " + entity.getBody().getName());
 		return entity.getBody();
 	}
 
