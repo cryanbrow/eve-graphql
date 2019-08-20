@@ -57,6 +57,7 @@ public class CrestDao {
 		return entity.getBody();
 	}
 	
+	@Cacheable("moon")
 	public Moon getMoonById(long moon_id) {
 		ResponseEntity<Moon> entity = restTemplate.exchange(
 				"https://esi.evetech.net/latest/universe/moons/" + moon_id + "/", HttpMethod.GET, null,

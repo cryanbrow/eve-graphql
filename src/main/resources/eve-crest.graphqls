@@ -18,7 +18,6 @@ type Order{
 	price : Float
 	range : Range
 	system : System
-	system_id : Int
 	item_type : ItemType
 	type_id : Int
 	volume_remain : Int
