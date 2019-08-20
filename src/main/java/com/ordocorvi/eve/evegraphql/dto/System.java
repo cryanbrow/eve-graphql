@@ -14,7 +14,7 @@ public class System {
 	private Constellation constellation;
 	private long constellation_id;
 	private String name;
-	private List<Long> planets;
+	private List<PlanetDefinition> planets;
 	private List<Planet> planets_details;
 	private Position position;
 	private String security_class;
