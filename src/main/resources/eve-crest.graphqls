@@ -260,6 +260,11 @@ type System{
 	id : ID
 }
 
+type PlanetDefinition{
+	planet_id : Int
+	moons : Int
+}
+
 type Constellation{
 	id : ID
 	name : String
