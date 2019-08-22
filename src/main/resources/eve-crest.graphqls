@@ -12,7 +12,7 @@ type Order{
 	is_buy_order : Boolean
 	issued : String
 	location : Station
-	location_id : Int
+	location_id : Long
 	min_volume : Int
 	order_id : ID
 	price : Float

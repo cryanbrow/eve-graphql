@@ -14,6 +14,7 @@ import com.ordocorvi.eve.evegraphql.dto.Constellation;
 import com.ordocorvi.eve.evegraphql.dto.ItemType;
 import com.ordocorvi.eve.evegraphql.dto.Moon;
 import com.ordocorvi.eve.evegraphql.dto.Order;
+import com.ordocorvi.eve.evegraphql.dto.Station;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -82,6 +83,15 @@ public class CrestDao {
 				"https://esi.evetech.net/latest/universe/constellations/" + constellation_id + "/", HttpMethod.GET, null,
 				Constellation.class);
 		log.info("Resolving Item Type: " + entity.getBody().getName());
+		return entity.getBody();
+	}
+	
+	@Cacheable("station")
+	public Station getStationById(long location_id) {
+		ResponseEntity<Station> entity = restTemplate.exchange(
+				"https://esi.evetech.net/latest/universe/stations/" + location_id + "/", HttpMethod.GET, null,
+				Station.class);
+		log.info("Resolving Station: " + entity.getBody().getName());
 		return entity.getBody();
 	}
 
