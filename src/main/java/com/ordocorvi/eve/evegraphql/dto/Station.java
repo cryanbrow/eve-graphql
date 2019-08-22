@@ -1,5 +1,7 @@
 package com.ordocorvi.eve.evegraphql.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,11 +17,13 @@ public class Station {
 	private Corporation owner_corporation;
 	private long owner;
 	private Position position;
-	private Race race_id;
+	private long race_id;
+	private Race race;
 	private float reprocessing_efficiency;
 	private float reprocessing_stations_take;
-	private Services services;
+	private List<Services> services;
 	private long station_id;
-	private System system_id;
+	private long system_id;
+	private System system;
 	private ItemType station_type;
 }

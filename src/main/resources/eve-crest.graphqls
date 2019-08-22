@@ -30,12 +30,14 @@ type Station{
 	office_rental_cost : Float
 	owner_corporation : Corporation
 	position : Position
-	race_id : Race
+	race_id : Int
+	race: Race
 	reprocessing_efficiency : Float
 	reprocessing_stations_take : Float
-	services : Services
+	services : [Services]
 	station_id : ID
-	system_id : System
+	system_id : Int
+	system : System
 	station_type : ItemType
 }
 

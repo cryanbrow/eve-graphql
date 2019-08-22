@@ -88,11 +88,18 @@ public class CrestDao {
 	
 	@Cacheable("station")
 	public Station getStationById(long location_id) {
+		//TODO move this somewhere.
+		if (location_id < 2147483647) {
 		ResponseEntity<Station> entity = restTemplate.exchange(
 				"https://esi.evetech.net/latest/universe/stations/" + location_id + "/", HttpMethod.GET, null,
 				Station.class);
 		log.info("Resolving Station: " + entity.getBody().getName());
 		return entity.getBody();
+		} else {
+			log.info("Location was greater than int32");
+			return null;
+		}
+		
 	}
 
 }
