@@ -4,7 +4,15 @@
 type Query{
 	ordersForRegion(
 		region_id : Int
+		order_type : ordertype = all
+		type_id : Int
 	) : [Order]
+}
+
+enum ordertype {
+	buy
+	sell
+	all
 }
 
 type Order{

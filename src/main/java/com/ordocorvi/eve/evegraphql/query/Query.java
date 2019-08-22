@@ -15,8 +15,8 @@ public class Query implements GraphQLQueryResolver {
 	@Autowired
 	private CrestDao crestDao;
 	
-	public List<Order> ordersForRegion(int id) {
-		return crestDao.ordersForRegion(id);
+	public List<Order> ordersForRegion(int id, Ordertype ordertype, long type_id) {
+		return crestDao.ordersForRegion(id, ordertype, type_id);
 	}
 	
 }

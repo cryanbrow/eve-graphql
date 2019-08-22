@@ -1,5 +1,7 @@
 package com.ordocorvi.eve.evegraphql.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,6 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class Order {
 	private int duration;
+	@JsonProperty("is_buy_order")
 	private boolean is_buy_order;
 	private String issued;
 	private Station location;

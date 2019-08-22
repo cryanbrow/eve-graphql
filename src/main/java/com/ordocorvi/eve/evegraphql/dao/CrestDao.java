@@ -15,6 +15,7 @@ import com.ordocorvi.eve.evegraphql.dto.ItemType;
 import com.ordocorvi.eve.evegraphql.dto.Moon;
 import com.ordocorvi.eve.evegraphql.dto.Order;
 import com.ordocorvi.eve.evegraphql.dto.Station;
+import com.ordocorvi.eve.evegraphql.query.Ordertype;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,10 +24,21 @@ import lombok.extern.slf4j.Slf4j;
 public class CrestDao {
 	private RestTemplate restTemplate = new RestTemplate();
 
-	public List<Order> ordersForRegion(int id) {
+	public List<Order> ordersForRegion(int id, Ordertype ordertype, long type_id) {
 		// TODO remove this hardcoded crap. Also String concat
-		ResponseEntity<Order[]> entity = restTemplate.exchange("https://esi.evetech.net/latest/markets/" + id
-				+ "/orders/?datasource=tranquility&order_type=all&page=1", HttpMethod.GET, null, Order[].class);
+		StringBuffer sb = new StringBuffer();
+		sb.append("https://esi.evetech.net/latest/markets/");
+		sb.append(id);
+		sb.append("/orders/?datasource=tranquility&page=1&order_type=");
+		sb.append(ordertype);
+		sb.append("&region_id=");
+		sb.append(id);
+		if (type_id != 0) {
+			sb.append("&type_id=");
+			sb.append(type_id);
+		}
+		log.info(sb.toString());
+		ResponseEntity<Order[]> entity = restTemplate.exchange(sb.toString(), HttpMethod.GET, null, Order[].class);
 
 		List<String> pages = entity.getHeaders().get("x-pages");
 		int int_pages = Integer.valueOf(pages.get(0));
@@ -39,9 +51,20 @@ public class CrestDao {
 		// method scoped so that each hit can have up to a number of threads.
 
 		for (int i = 2; i <= int_pages; i++) {
-			ResponseEntity<Order[]> tempEntity = restTemplate.exchange(
-					"https://esi.evetech.net/latest/markets/" + id
-							+ "/orders/?datasource=tranquility&order_type=all&page=" + i,
+			sb.delete(0, sb.length());
+			sb.append("https://esi.evetech.net/latest/markets/");
+			sb.append(id);
+			sb.append("/orders/?datasource=tranquility&page=");
+			sb.append(i);
+			sb.append("&order_type=");
+			sb.append(ordertype);
+			sb.append("&region_id=");
+			sb.append(id);
+			if (type_id != 0) {
+				sb.append("&type_id=");
+				sb.append(type_id);
+			}
+			ResponseEntity<Order[]> tempEntity = restTemplate.exchange(sb.toString(),
 					HttpMethod.GET, null, Order[].class);
 			orders.addAll(new ArrayList<>(Arrays.asList(tempEntity.getBody())));
 		}
