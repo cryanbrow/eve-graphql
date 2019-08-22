@@ -15,6 +15,7 @@ public class Corporation {
 	private String date_founded;
 	private String description;
 	private Faction faction;
+	private long faction_id;
 	private Station home_station_id;
 	private int member_count;
 	private String name;

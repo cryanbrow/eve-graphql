@@ -28,7 +28,7 @@ type Station{
 	max_dockable_ship_volume : Float
 	name : String
 	office_rental_cost : Float
-	owner : Corporation
+	owner_corporation : Corporation
 	position : Position
 	race_id : Race
 	reprocessing_efficiency : Float

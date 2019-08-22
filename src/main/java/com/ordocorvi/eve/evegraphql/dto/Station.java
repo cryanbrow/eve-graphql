@@ -12,7 +12,8 @@ public class Station {
 	private float max_dockable_ship_volume;
 	private String name;
 	private float office_rental_cost;
-	private Corporation owner;
+	private Corporation owner_corporation;
+	private long owner;
 	private Position position;
 	private Race race_id;
 	private float reprocessing_efficiency;
