@@ -67,10 +67,10 @@ type Corporation{
 }
 
 type Alliance{
-	creator_corporation : Corporation
+	creatorCorporation : Corporation
 	creator : Character
-	date_founded : String
-	executor_corporation : Corporation
+	dateFounded : String
+	executorCorporation : Corporation
 	faction : Faction
 	name : String
 	ticker : String
@@ -97,7 +97,7 @@ type Ancestry{
 	icon : Icon
 	id : ID
 	name : String
-	short_description : String
+	shortDescription : String
 }
 
 type Bloodline{
@@ -110,7 +110,7 @@ type Bloodline{
 	name : String
 	perception : Int
 	race : Race
-	ship_type : ItemType
+	shipType : ItemType
 	willpower : Int
 }
 
@@ -225,7 +225,7 @@ type Group{
 }
 
 type Category{
-	id : ID
+	categoryId : ID
 	groups : [Group]
 	name : String
 	published : Boolean
