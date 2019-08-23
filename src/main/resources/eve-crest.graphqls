@@ -50,20 +50,20 @@ type Station{
 }
 
 type Corporation{
-	alliance_id : Alliance
+	alliance : Alliance
 	ceo : Character
-	creator_id : Character
-	date_founded : String
+	creator : Character
+	dateFounded : String
 	description : String
 	faction : Faction
-	home_station_id : Station
-	member_count : Int
+	homeStation : Station
+	memberCount : Int
 	name : String
 	shares : Int
-	tax_rate : Float
+	taxRate : Float
 	ticker : String
 	url : String
-	war_eligible : Boolean
+	warEligible : Boolean
 }
 
 type Alliance{
@@ -87,7 +87,7 @@ type Character{
 	gender : Gender
 	name : String
 	race : Race
-	security_status : Float
+	securityStatus : Float
 	title : String
 }
 
@@ -142,16 +142,16 @@ type ItemType{
 }
 
 type DogmaAttribute{
-	attribute_id : DogmaAttributeDetail
+	attribute : DogmaAttributeDetail
 	value : Float
 }
 
 type DogmaAttributeDetail{
-	id : ID
-	default_value : Float
+	attributeId : ID
+	defaultValue : Float
 	description : String
-	display_name : String
-	high_is_good : Boolean
+	displayName : String
+	highIsGood : Boolean
 	icon : Icon
 	name : String
 	published : Boolean
@@ -168,32 +168,32 @@ type Unit{
 }
 
 type DogmaEffect{
-	effect_id : DogmaEffectDetail
-	is_default : Boolean
+	effect : DogmaEffectDetail
+	isDefault : Boolean
 }
 
 type DogmaEffectDetail{
 	description : String
-	disallow_auto_repeat : Boolean
-	discharge_attribute : DogmaAttribute
-	display_name : String
-	duration_attribute : DogmaAttribute
-	effect_category : Int
-	effect_id : Int
-	electronic_chance : Boolean
-	falloff_attribute_id : Int
+	disallowAutoRepeat : Boolean
+	dischargeAttribute : DogmaAttribute
+	displayName : String
+	durationAttribute : DogmaAttribute
+	effectCategory : Int
+	effectId : Int
+	electronicChance : Boolean
+	falloffAttributeId : Int
 	icon : Icon
-	is_assistance : Boolean
-	is_offensive : Boolean
-	is_warp_safe : Boolean
+	isAssistance : Boolean
+	isOffensive : Boolean
+	isWarpSafe : Boolean
 	modifiers : [Modifier]
 	name : String
-	post_expression : Int
-	pre_expression : Int
+	postExpression : Int
+	preExpression : Int
 	published : Boolean
-	range_attribute_id : Int
-	range_change : Boolean
-	tracking_speed_attribute_id : Int
+	rangeAttributeId : Int
+	rangeChange : Boolean
+	trackingSpeedAttributeId : Int
 }
 
 type Modifier{
@@ -275,7 +275,7 @@ type PlanetDefinition{
 }
 
 type Constellation{
-	id : ID
+	constellationId : ID
 	name : String
 	position : Position
 	region : Region

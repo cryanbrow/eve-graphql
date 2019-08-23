@@ -2,6 +2,8 @@ package com.ordocorvi.eve.evegraphql.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,25 +13,50 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class DogmaEffectDetail {
+	@JsonProperty("description")
 	private String description;
-	private boolean disallow_auto_repeat;
-	private DogmaAttribute discharge_attribute;
-	private String display_name;
-	private DogmaAttribute duration_attribute;
-	private int effect_category;
-	private int effect_id;
-	private boolean electronic_chance;
-	private int falloff_attribute_id;
-	private Icon icon;
-	private boolean is_assistance;
-	private boolean is_offensive;
-	private boolean is_warp_safe;
+	@JsonProperty("disallow_auto_repeat")
+	private boolean disallowAutoRepeat;
+	@JsonProperty("discharge_attribute")
+	private DogmaAttribute dischargeAttributeId;
+	@JsonProperty("display_name")
+	private String displayName;
+	@JsonProperty("duration_attribute")
+	private DogmaAttribute durationAttributeId;
+	@JsonProperty("effect_category")
+	private int effectCategory;
+	@JsonProperty("effect_id")
+	private int effectId;
+	@JsonProperty("electronic_chance")
+	private boolean electronicChance;
+	@JsonProperty("falloff_attribute_id")
+	private int falloffAttributeId;
+	@JsonProperty("icon_id")
+	private Icon iconId;
+	@JsonProperty("is_assistance")
+	private boolean isAssistance;
+	@JsonProperty("is_offensive")
+	private boolean isOffensive;
+	@JsonProperty("is_warp_safe")
+	private boolean isWarpSafe;
+	@JsonProperty("modifiers")
 	private List<Modifier> modifiers;
+	@JsonProperty("name")
 	private String name;
-	private int post_expression;
-	private int pre_expression;
+	@JsonProperty("post_expression")
+	private int postExpression;
+	@JsonProperty("pre_expression")
+	private int preExpression;
+	@JsonProperty("published")
 	private boolean published;
-	private int range_attribute_id;
-	private boolean range_change;
-	private int tracking_speed_attribute_id;
+	@JsonProperty("range_attribute_id")
+	private int rangeAttributeId;
+	@JsonProperty("range_change")
+	private boolean rangeChange;
+	@JsonProperty("tracking_speed_attribute_id")
+	private int trackingSpeedAttributeId;
+	
+	private DogmaAttribute dischargeAttribute;
+	private DogmaAttribute durationAttribute;
+	private Icon icon;
 }
