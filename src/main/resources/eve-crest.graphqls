@@ -226,7 +226,7 @@ type Group{
 
 type Category{
 	categoryId : ID
-	groups : [Group]
+	categoryGroups : [Group]
 	name : String
 	published : Boolean
 }
@@ -279,7 +279,7 @@ type Constellation{
 	name : String
 	position : Position
 	region : Region
-	systems : [System]
+	solarSystems : [System]
 }
 
 type Position{

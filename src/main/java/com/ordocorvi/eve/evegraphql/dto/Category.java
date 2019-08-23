@@ -23,5 +23,5 @@ public class Category {
 	private boolean published;
 	
 	//Non Json properties
-	private List<Group> groups;
+	private List<Group> categoryGroups;
 }

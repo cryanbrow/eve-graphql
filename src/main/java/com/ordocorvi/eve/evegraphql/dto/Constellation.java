@@ -26,5 +26,5 @@ public class Constellation {
 	
 	//Non Json properties
 	private Region region;
-	private List<com.ordocorvi.eve.evegraphql.dto.System> systems;
+	private List<com.ordocorvi.eve.evegraphql.dto.System> solarSystems;
 }
