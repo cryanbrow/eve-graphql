@@ -122,22 +122,21 @@ type Race{
 }
 
 type ItemType{
-	id : ID
+	typeId : ID
 	capacity : Float
 	description : String
-	dogma_attributes : [DogmaAttribute]
-	dogma_effects : [DogmaEffect]
+	dogmaAttributes : [DogmaAttribute]
+	dogmaEffects : [DogmaEffect]
 	graphic : Graphic
 	group : Group
 	icon : Icon
-	market_group : MarketGroup
+	marketGroup : MarketGroup
 	mass : Float
 	name : String
-	packaged_volume : Float
-	portion_size : Int
+	packagedVolume : Float
+	portionSize : Int
 	published : Boolean
 	radius : Float
-	type_id : Int
 	volume : Float
 }
 
@@ -206,22 +205,22 @@ type Modifier{
 }
 
 type Graphic{
-	collision_file : String
-	graphic_file : String
-	graphic_id : ID
-	icon_folder : String
-	sof_dna : String
-	sof_faction_name : String
-	sof_hull_name : String
-	sof_race_name : String
+	collisionFile : String
+	graphicFile : String
+	graphicId : ID
+	iconFolder : String
+	sofDna : String
+	sofFactionName : String
+	sofHullName : String
+	sofRaceName : String
 }
 
 type Group{
 	category : Category
-	id : ID
+	groupId : ID
 	name : String
 	published : Boolean
-	types : [ItemType]
+	itemTypes : [ItemType]
 }
 
 type Category{

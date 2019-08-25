@@ -2,6 +2,8 @@ package com.ordocorvi.eve.evegraphql.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,21 +13,42 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class ItemType {
-	private long id;
+	@JsonProperty("type_id")
+	private long typeId;
+	@JsonProperty("capacity")
 	private float capacity;
+	@JsonProperty("description")
 	private String description;
-	private List<DogmaAttribute> dogma_attributes;
-	private List<DogmaEffect> dogma_effects;
+	@JsonProperty("dogma_attributes")
+	private List<DogmaAttribute> dogmaAttributes;
+	@JsonProperty("dogma_effects")
+	private List<DogmaEffect> dogmaEffects;
+	@JsonProperty("graphic_id")
+	private long graphicId;
+	@JsonProperty("group_id")
+	private long groupId;
+	@JsonProperty("icon_id")
+	private long iconId;
+	@JsonProperty("market_group_id")
+	private long marketGroupId;
+	@JsonProperty("mass")
+	private float mass;
+	@JsonProperty("name")
+	private String name;
+	@JsonProperty("packaged_volume")
+	private float packagedVolume;
+	@JsonProperty("portionSize")
+	private int portionSize;
+	@JsonProperty("published")
+	private boolean published;
+	@JsonProperty("radius")
+	private float radius;
+	@JsonProperty("volume")
+	private float volume;
+	
+	//Non Json properties
 	private Graphic graphic;
 	private Group group;
 	private Icon icon;
-	private MarketGroup market_group;
-	private float mass;
-	private String name;
-	private float packaged_volume;
-	private int portion_size;
-	private boolean published;
-	private float radius;
-	private int type_id;
-	private float volume;
+	private MarketGroup marketGroup;
 }
