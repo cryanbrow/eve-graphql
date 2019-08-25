@@ -242,14 +242,14 @@ type MarketGroup{
 type Faction{
 	corporation : Corporation
 	description : String
-	faction : Faction
-	is_unique : Boolean
-	militia_corporation : Corporation
+	factionId : Int
+	isUnique : Boolean
+	militiaCorporation : Corporation
 	name : String
-	size_factor : Float
-	solar_system : System
-	station_count : Int
-	station_system_count : Int
+	sizeFactor : Float
+	solarSystem : System
+	stationCount : Int
+	stationSystemCount : Int
 }
 
 type System{
