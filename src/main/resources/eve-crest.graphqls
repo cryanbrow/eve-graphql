@@ -197,10 +197,10 @@ type DogmaEffectDetail{
 
 type Modifier{
 	domain : String
-	effect_id : Int
+	effectId : Int
 	func : String
-	modified_attribute_id : Int
-	modifying_attribute_id : Int
+	modifiedAttributeId : Int
+	modifyingAttributeId : Int
 	operator : Int
 }
 
@@ -307,7 +307,7 @@ type AsteroidBelt{
 }
 
 type Moon{
-	id : ID
+	moonId : ID
 	name : String
 	position : Position
 	system : System
