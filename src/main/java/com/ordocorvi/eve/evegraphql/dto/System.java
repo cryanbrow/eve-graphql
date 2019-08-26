@@ -2,6 +2,8 @@ package com.ordocorvi.eve.evegraphql.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,18 +13,28 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class System {
-	private Constellation constellation;
-	private long constellation_id;
+	@JsonProperty("constellation_id")
+	private long constellationId;
+	@JsonProperty("name")
 	private String name;
-	private List<PlanetDefinition> planets;
-	private List<Planet> planets_details;
+	@JsonProperty("planets")
+	private List<SystemPlanet> planets;
+	@JsonProperty("position")
 	private Position position;
-	private String security_class;
+	@JsonProperty("security_class")
+	private String securityClass;
+	@JsonProperty("star_id")
+	private long starId;
+	@JsonProperty("stargates")
+	private List<Long> stargateIds;
+	@JsonProperty("stations")
+	private List<Long> stationIds;
+	@JsonProperty("system_id")
+	private long systemId;
+
+	
+	private Constellation constellation;
 	private Star star;
-	private long star_id;
-	private List<Long> stargates;
-	private List<Stargate> stargates_details;
-	private List<Long> stations;
-	private List<Station> stations_details;
-	private long id;
+	private List<Stargate> stargates;
+	private List<Station> stations;
 }

@@ -15,15 +15,15 @@ public class OrderResolver implements GraphQLResolver<Order> {
 	private CrestDao crestDao;
 	
 	public com.ordocorvi.eve.evegraphql.dto.System getSystem(Order order) {
-		return crestDao.getSystemById(order.getSystem_id());
+		return crestDao.getSystemById(order.getSystemId());
 	}
 	
 	public ItemType getItem_type(Order order) {
-		return crestDao.getItemTypeById(order.getType_id());
+		return crestDao.getItemTypeById(order.getTypeId());
 	}
 	
 	public Station getLocation(Order order) {
-		return crestDao.getStationById(order.getLocation_id());
+		return crestDao.getStationById(order.getLocationId());
 	}
 	
 }

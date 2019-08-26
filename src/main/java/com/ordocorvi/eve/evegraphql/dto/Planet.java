@@ -1,6 +1,6 @@
 package com.ordocorvi.eve.evegraphql.dto;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,18 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class Planet {
-	private List<AsteroidBelt> asteroid_belts;
-	private List<Moon> moons;
-	private long id;
+	@JsonProperty("name")
+	private String name;
+	@JsonProperty("planet_id")
+	private long planetId;
+	@JsonProperty("position")
+	private Position position;
+	@JsonProperty("system_id")
+	private long systemId;
+	@JsonProperty("type_id")
+	private long typeId;
+	
+	private com.ordocorvi.eve.evegraphql.dto.System system;
+	private ItemType itemType;
+	
 }

@@ -2,6 +2,8 @@ package com.ordocorvi.eve.evegraphql.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,8 +13,15 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class Region {
-	private List<Constellation> constellations;
+	@JsonProperty("constellations")
+	private List<Long> constellationIds;
+	@JsonProperty("description")
 	private String description;
+	@JsonProperty("name")
 	private String name;
-	private long id;
+	@JsonProperty("region_id")
+	private long regionId;
+	
+	
+	private List<Constellation> constellations;
 }

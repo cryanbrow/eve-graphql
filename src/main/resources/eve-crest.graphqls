@@ -1,6 +1,3 @@
-# GraphQL from graph at:
-# graphqleditor.com
-
 type Query{
 	ordersForRegion(
 		region_id : Int
@@ -17,36 +14,32 @@ enum ordertype {
 
 type Order{
 	duration : Int
-	is_buy_order : Boolean
+	isBuyOrder : Boolean
 	issued : String
 	location : Station
-	location_id : Long
-	min_volume : Int
-	order_id : ID
+	minVolume : Int
+	orderId : ID
 	price : Float
 	range : Range
 	system : System
-	item_type : ItemType
-	type_id : Int
-	volume_remain : Int
-	volume_total : Int
+	itemType : ItemType
+	volumeRemain : Int
+	volumeTotal : Int
 }
 
 type Station{
-	max_dockable_ship_volume : Float
+	maxDockableShipVolume : Float
 	name : String
-	office_rental_cost : Float
-	owner_corporation : Corporation
+	officeRentalCost : Float
+	owner : Corporation
 	position : Position
-	race_id : Int
 	race: Race
-	reprocessing_efficiency : Float
-	reprocessing_stations_take : Float
+	reprocessingEfficiency : Float
+	reprocessingStationsTake : Float
 	services : [Services]
-	station_id : ID
-	system_id : Int
+	stationId : ID
 	system : System
-	station_type : ItemType
+	stationType : ItemType
 }
 
 type Corporation{
@@ -118,7 +111,7 @@ type Race{
 	alliance : Alliance
 	description : String
 	name : String
-	id : ID
+	raceId : ID
 }
 
 type ItemType{
@@ -253,24 +246,14 @@ type Faction{
 
 type System{
 	constellation : Constellation
-	constellation_id : Int
 	name : String
-	planets : [PlanetDefinition]
-	planets_details : [Planet]
+	planets : [SystemPlanet]
 	position : Position
-	security_class : String
+	securityClass : String
 	star : Star
-	star_id : Int
-	stargates : [Int]
-	stargates_details : [Stargate]
-	stations : [Int]
-	stations_details : [Station]
-	id : ID
-}
-
-type PlanetDefinition{
-	planet_id : Int
-	moons : [Int]
+	stargates : [Stargate]
+	stations : [Station]
+	systemId : ID
 }
 
 type Constellation{
@@ -291,13 +274,21 @@ type Region{
 	constellations : [Constellation]
 	description : String
 	name : String
-	id : ID
+	regionId : ID
 }
 
 type Planet{
-	asteroid_belts : [AsteroidBelt]
+	name : String
+	planetId : ID
+	position : Position
+	system : System
+	itemType : ItemType
+}
+
+type SystemPlanet{
+	asteroidBelts : [AsteroidBelt]
 	moons : [Moon]
-	id : ID
+	planetProperties : Planet
 }
 
 type AsteroidBelt{
@@ -318,11 +309,11 @@ type Star{
 	luminosity : Float
 	name : String
 	radius : Int
-	solar_system : System
-	spectral_class : SpectralClass
-	id : ID
+	solarSystem : System
+	spectralClass : SpectralClass
+	starId : ID
 	temperature : Int
-	item_type : ItemType
+	itemType : ItemType
 }
 
 enum SpectralClass{
@@ -421,9 +412,9 @@ type Stargate{
 	destination : StargateDestination
 	name : String
 	position : Position
-	id : ID
+	stargateId : ID
 	system : System
-	item_type : ItemType
+	itemType : ItemType
 }
 
 type StargateDestination{

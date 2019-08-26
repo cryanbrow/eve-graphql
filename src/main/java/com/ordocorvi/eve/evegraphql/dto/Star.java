@@ -1,5 +1,7 @@
 package com.ordocorvi.eve.evegraphql.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,13 +11,25 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class Star {
+	@JsonProperty("age")
 	private int age;
+	@JsonProperty("luminosity")
 	private float luminosity;
+	@JsonProperty("name")
 	private String name;
+	@JsonProperty("radius")
 	private int radius;
-	private com.ordocorvi.eve.evegraphql.dto.System solar_system;
-	private SpectralClass spectral_class;
-	private long id;
+	@JsonProperty("solarSystemId")
+	private long solarSystemId;
+	@JsonProperty("spectral_class")
+	private SpectralClass spectralClass;
+	
+	@JsonProperty("temperature")
 	private int temperature;
-	private ItemType item_type;
+	@JsonProperty("type_id")
+	private long typeId;
+	
+	private ItemType itemType;
+	private com.ordocorvi.eve.evegraphql.dto.System solarSystem;
+	private long starId;
 }

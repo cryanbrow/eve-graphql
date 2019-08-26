@@ -11,20 +11,32 @@ import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class Order {
+	@JsonProperty("duration")
 	private int duration;
 	@JsonProperty("is_buy_order")
-	private boolean is_buy_order;
+	private boolean isBuyOrder;
+	@JsonProperty("issued")
 	private String issued;
-	private Station location;
-	private long location_id;
-	private int min_volume;
-	private long order_id;
+	@JsonProperty("location_id")
+	private long locationId;
+	@JsonProperty("min_volume")
+	private int minVolume;
+	@JsonProperty("order_id")
+	private long orderId;
+	@JsonProperty("price")
 	private float price;
+	@JsonProperty("range")
 	private Range range;
+	@JsonProperty("system_id")
+	private long systemId;
+	@JsonProperty("type_id")
+	private long typeId;
+	@JsonProperty("volumen_remain")
+	private int volumeRemain;
+	@JsonProperty("volume_total")
+	private int volumeTotal;
+	
 	private com.ordocorvi.eve.evegraphql.dto.System system;
-	private long system_id;
-	private ItemType item_type;
-	private long type_id;
-	private int volume_remain;
-	private int volume_total;
+	private ItemType itemType;
+	private Station location;
 }

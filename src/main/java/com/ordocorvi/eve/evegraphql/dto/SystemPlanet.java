@@ -1,5 +1,7 @@
 package com.ordocorvi.eve.evegraphql.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -10,13 +12,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
-public class StargateDestination {
-	@JsonProperty("stargate_id")
-	private long stargateId;
-	@JsonProperty("system_id")
-	private long systemId;
+public class SystemPlanet {
+	@JsonProperty("asteroid_belts")
+	private List<Long> asteroidBeltIds;
+	@JsonProperty("moons")
+	private List<Long> moonIds;
+	@JsonProperty("planet_id")
+	private long planetId;
 	
-	
-	private Stargate stargate;
-	private com.ordocorvi.eve.evegraphql.dto.System system;
+	private List<AsteroidBelt> asteroidBelts;
+	private List<Moon> moons;
+	private Planet planetProperties;
 }
