@@ -10,15 +10,16 @@ import com.ordocorvi.eve.evegraphql.dto.Station;
 
 import lombok.ToString;
 
-@ToString @Component
+@ToString
+@Component
 public class StationResolver implements GraphQLResolver<Station> {
 
 	@Autowired
 	private CrestDao crestDao;
-	
-	/*
-	 * public Corporation getOwner_corporation(Station station) { return
-	 * crestDao.getCorporationById(station.getOwner()); }
-	 */
-	
+
+	public Corporation getOwner_corporation(Station station) {
+		//return crestDao.getCorporationById(station.getOwnerId());
+		return null;
+	}
+
 }

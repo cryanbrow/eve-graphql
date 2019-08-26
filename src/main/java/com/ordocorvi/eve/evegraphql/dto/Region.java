@@ -23,5 +23,5 @@ public class Region {
 	private long regionId;
 	
 	
-	private List<Constellation> constellations;
+	private List<Constellation> constellationList;
 }

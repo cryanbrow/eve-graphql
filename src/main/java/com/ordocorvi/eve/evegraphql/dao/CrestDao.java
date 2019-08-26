@@ -25,7 +25,6 @@ public class CrestDao {
 	private RestTemplate restTemplate = new RestTemplate();
 
 	public List<Order> ordersForRegion(int id, Ordertype ordertype, long type_id) {
-		// TODO remove this hardcoded crap. Also String concat
 		StringBuffer sb = new StringBuffer();
 		sb.append("https://esi.evetech.net/latest/markets/");
 		sb.append(id);
@@ -64,8 +63,7 @@ public class CrestDao {
 				sb.append("&type_id=");
 				sb.append(type_id);
 			}
-			ResponseEntity<Order[]> tempEntity = restTemplate.exchange(sb.toString(),
-					HttpMethod.GET, null, Order[].class);
+			ResponseEntity<Order[]> tempEntity = restTemplate.exchange(sb.toString(), HttpMethod.GET, null, Order[].class);
 			orders.addAll(new ArrayList<>(Arrays.asList(tempEntity.getBody())));
 		}
 
@@ -75,54 +73,44 @@ public class CrestDao {
 	@Cacheable("system")
 	public com.ordocorvi.eve.evegraphql.dto.System getSystemById(long system_id) {
 		// TODO remove this hardcoded crap. Also String concat
-		ResponseEntity<com.ordocorvi.eve.evegraphql.dto.System> entity = restTemplate.exchange(
-				"https://esi.evetech.net/latest/universe/systems/" + system_id + "/", HttpMethod.GET, null,
-				com.ordocorvi.eve.evegraphql.dto.System.class);
+		ResponseEntity<com.ordocorvi.eve.evegraphql.dto.System> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/systems/" + system_id + "/", HttpMethod.GET, null, com.ordocorvi.eve.evegraphql.dto.System.class);
 		log.info("Resolving System: " + entity.getBody().getName());
 		return entity.getBody();
 	}
-	
+
 	@Cacheable("moon")
 	public Moon getMoonById(long moon_id) {
-		ResponseEntity<Moon> entity = restTemplate.exchange(
-				"https://esi.evetech.net/latest/universe/moons/" + moon_id + "/", HttpMethod.GET, null,
-				Moon.class);
+		ResponseEntity<Moon> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/moons/" + moon_id + "/", HttpMethod.GET, null, Moon.class);
 		log.info("Resolving Moon: " + entity.getBody().getName());
 		return entity.getBody();
 	}
-	
+
 	@Cacheable("item_type")
 	public ItemType getItemTypeById(long type_id) {
-		ResponseEntity<ItemType> entity = restTemplate.exchange(
-				"https://esi.evetech.net/latest/universe/types/" + type_id + "/", HttpMethod.GET, null,
-				ItemType.class);
+		ResponseEntity<ItemType> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/types/" + type_id + "/", HttpMethod.GET, null, ItemType.class);
 		log.info("Resolving Item Type: " + entity.getBody().getName());
 		return entity.getBody();
 	}
-	
+
 	@Cacheable("constellatioon")
 	public Constellation getConstellationById(long constellation_id) {
-		ResponseEntity<Constellation> entity = restTemplate.exchange(
-				"https://esi.evetech.net/latest/universe/constellations/" + constellation_id + "/", HttpMethod.GET, null,
-				Constellation.class);
+		ResponseEntity<Constellation> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/constellations/" + constellation_id + "/", HttpMethod.GET, null, Constellation.class);
 		log.info("Resolving Item Type: " + entity.getBody().getName());
 		return entity.getBody();
 	}
-	
+
 	@Cacheable("station")
 	public Station getStationById(long location_id) {
-		//TODO move this somewhere.
+		// TODO move this somewhere.
 		if (location_id < 2147483647) {
-		ResponseEntity<Station> entity = restTemplate.exchange(
-				"https://esi.evetech.net/latest/universe/stations/" + location_id + "/", HttpMethod.GET, null,
-				Station.class);
-		log.info("Resolving Station: " + entity.getBody().getName());
-		return entity.getBody();
+			ResponseEntity<Station> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/stations/" + location_id + "/", HttpMethod.GET, null, Station.class);
+			log.info("Resolving Station: " + entity.getBody().getName());
+			return entity.getBody();
 		} else {
 			log.info("Location was greater than int32");
 			return null;
 		}
-		
+
 	}
 
 }

@@ -35,6 +35,6 @@ public class System {
 	
 	private Constellation constellation;
 	private Star star;
-	private List<Stargate> stargates;
-	private List<Station> stations;
+	private List<Stargate> stargateList;
+	private List<Station> stationList;
 }

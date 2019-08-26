@@ -36,7 +36,7 @@ public class Station {
 	@JsonProperty("system_id")
 	private long systemId;
 	
-	private Corporation owner;
+	private Corporation owningCorporation;
 	private Race race;
 	private com.ordocorvi.eve.evegraphql.dto.System system;
 	private ItemType stationType;

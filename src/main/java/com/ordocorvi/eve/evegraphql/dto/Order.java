@@ -31,7 +31,7 @@ public class Order {
 	private long systemId;
 	@JsonProperty("type_id")
 	private long typeId;
-	@JsonProperty("volumen_remain")
+	@JsonProperty("volume_remain")
 	private int volumeRemain;
 	@JsonProperty("volume_total")
 	private int volumeTotal;

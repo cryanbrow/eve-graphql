@@ -31,7 +31,7 @@ type Station{
 	maxDockableShipVolume : Float
 	name : String
 	officeRentalCost : Float
-	owner : Corporation
+	owningCorporation : Corporation
 	position : Position
 	race: Race
 	reprocessingEfficiency : Float
@@ -251,8 +251,8 @@ type System{
 	position : Position
 	securityClass : String
 	star : Star
-	stargates : [Stargate]
-	stations : [Station]
+	stargateList : [Stargate]
+	stationList : [Station]
 	systemId : ID
 }
 
@@ -271,7 +271,7 @@ type Position{
 }
 
 type Region{
-	constellations : [Constellation]
+	constellationList : [Constellation]
 	description : String
 	name : String
 	regionId : ID
@@ -287,7 +287,7 @@ type Planet{
 
 type SystemPlanet{
 	asteroidBelts : [AsteroidBelt]
-	moons : [Moon]
+	moonList : [Moon]
 	planetProperties : Planet
 }
 

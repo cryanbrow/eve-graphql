@@ -21,6 +21,6 @@ public class SystemPlanet {
 	private long planetId;
 	
 	private List<AsteroidBelt> asteroidBelts;
-	private List<Moon> moons;
+	private List<Moon> moonList;
 	private Planet planetProperties;
 }
