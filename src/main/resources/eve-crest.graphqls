@@ -4,6 +4,7 @@ type Query{
 		order_type : ordertype = all
 		type_id : Int
 	) : [Order]
+	systemById(id : Int) : System
 }
 
 enum ordertype {
@@ -305,7 +306,7 @@ type Moon{
 }
 
 type Star{
-	age : Int
+	age : Long
 	luminosity : Float
 	name : String
 	radius : Int

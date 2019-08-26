@@ -1,5 +1,7 @@
 package com.ordocorvi.eve.evegraphql.resolvers;
 
+import java.util.concurrent.CompletableFuture;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,15 +16,15 @@ public class OrderResolver implements GraphQLResolver<Order> {
 	@Autowired
 	private CrestDao crestDao;
 	
-	public com.ordocorvi.eve.evegraphql.dto.System getSystem(Order order) {
+	public CompletableFuture<com.ordocorvi.eve.evegraphql.dto.System> getSystem(Order order) {
 		return crestDao.getSystemById(order.getSystemId());
 	}
 	
-	public ItemType getItem_type(Order order) {
+	public CompletableFuture<ItemType> getItemType(Order order) {
 		return crestDao.getItemTypeById(order.getTypeId());
 	}
 	
-	public Station getLocation(Order order) {
+	public CompletableFuture<Station> getLocation(Order order) {
 		return crestDao.getStationById(order.getLocationId());
 	}
 	

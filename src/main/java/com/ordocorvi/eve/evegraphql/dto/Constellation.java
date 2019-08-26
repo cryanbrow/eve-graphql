@@ -22,7 +22,7 @@ public class Constellation {
 	@JsonProperty("region_id")
 	private long regionId;
 	@JsonProperty("systems")
-	private long systemIds;
+	private long[] systemIds;
 	
 	//Non Json properties
 	private Region region;

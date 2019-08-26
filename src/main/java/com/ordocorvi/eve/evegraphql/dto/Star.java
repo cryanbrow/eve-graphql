@@ -12,18 +12,17 @@ import lombok.ToString;
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString @EqualsAndHashCode
 public class Star {
 	@JsonProperty("age")
-	private int age;
+	private long age;
 	@JsonProperty("luminosity")
 	private float luminosity;
 	@JsonProperty("name")
 	private String name;
 	@JsonProperty("radius")
-	private int radius;
+	private long radius;
 	@JsonProperty("solarSystemId")
 	private long solarSystemId;
 	@JsonProperty("spectral_class")
 	private SpectralClass spectralClass;
-	
 	@JsonProperty("temperature")
 	private int temperature;
 	@JsonProperty("type_id")

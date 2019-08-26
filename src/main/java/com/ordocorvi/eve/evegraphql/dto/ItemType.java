@@ -37,7 +37,7 @@ public class ItemType {
 	private String name;
 	@JsonProperty("packaged_volume")
 	private float packagedVolume;
-	@JsonProperty("portionSize")
+	@JsonProperty("portion_size")
 	private int portionSize;
 	@JsonProperty("published")
 	private boolean published;

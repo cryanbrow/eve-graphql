@@ -7,7 +7,7 @@ import lombok.ToString;
 
 @AllArgsConstructor @ToString
 public enum SpectralClass {
-	K2_V("K2_V"),
+	K2_V("K2 V"),
 	K4_V("K4 V"),
 	G2_V("G2 V"),
 	G8_V("G8 V"),

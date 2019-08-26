@@ -1,6 +1,7 @@
 package com.ordocorvi.eve.evegraphql.query;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,10 @@ public class Query implements GraphQLQueryResolver {
 	
 	public List<Order> ordersForRegion(int id, Ordertype ordertype, long type_id) {
 		return crestDao.ordersForRegion(id, ordertype, type_id);
+	}
+	
+	public com.ordocorvi.eve.evegraphql.dto.System systemById(long id) throws InterruptedException, ExecutionException {
+		return crestDao.getSystemById(id).get();
 	}
 	
 }
