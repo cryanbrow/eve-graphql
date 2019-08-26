@@ -13,7 +13,7 @@ public class SystemResolver implements GraphQLResolver<com.ordocorvi.eve.evegrap
 	private CrestDao crestDao;
 	
 	public Constellation getConstellation(com.ordocorvi.eve.evegraphql.dto.System system) {
-		return crestDao.getConstellationById(system.getConstellation_id());
+		return crestDao.getConstellationById(system.getConstellationId());
 	}
 	
 }
