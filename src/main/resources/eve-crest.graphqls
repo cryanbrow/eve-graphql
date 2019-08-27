@@ -5,6 +5,7 @@ type Query{
 		type_id : Int
 	) : [Order]
 	systemById(id : Int) : System
+	stationById(id : Int) : Station
 }
 
 enum ordertype {
