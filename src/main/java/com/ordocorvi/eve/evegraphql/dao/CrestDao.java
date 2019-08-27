@@ -154,20 +154,11 @@ public class CrestDao {
 		return CompletableFuture.completedFuture(entity.getBody());
 	}
 
-	public List<Stargate> getStargateListByIds(List<Long> stargateIds) throws InterruptedException, ExecutionException {
-		List<Stargate> stargates = new ArrayList<Stargate>();
-		for (Long stargateId : stargateIds) {
-			stargates.add(this.getStargateById(stargateId).get());
-		}
-		return stargates;
-	}
-
-	@Async
 	@Cacheable("stargate")
-	public CompletableFuture<Stargate> getStargateById(long stargateId) {
+	public Stargate getStargateById(long stargateId) {
 		ResponseEntity<Stargate> entity = restTemplate.exchange("https://esi.evetech.net/latest/universe/stargates/" + stargateId + "/", HttpMethod.GET, null, Stargate.class);
 		log.info("Resolving Stargate: " + entity.getBody().getName());
-		return CompletableFuture.completedFuture(entity.getBody());
+		return entity.getBody();
 	}
 	
 }
