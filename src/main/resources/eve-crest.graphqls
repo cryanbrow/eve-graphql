@@ -254,6 +254,7 @@ type System{
 	star : Star
 	stargateList : [Stargate]
 	stationList : [Station]
+	stationIds: [Long]
 	systemId : ID
 }
 

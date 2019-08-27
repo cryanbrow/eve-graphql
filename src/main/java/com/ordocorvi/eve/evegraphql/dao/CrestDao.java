@@ -131,7 +131,7 @@ public class CrestDao {
 		return CompletableFuture.completedFuture(entity.getBody());
 	}
 	
-	@Async
+	@Async("threadPoolTaskExecutor")
 	@Cacheable("station")
 	public CompletableFuture<Station> getStationById(long location_id) {
 		// TODO move this somewhere.
@@ -141,7 +141,7 @@ public class CrestDao {
 			return CompletableFuture.completedFuture(entity.getBody());
 		} else {
 			log.info("Location was greater than int32");
-			return null;
+			return CompletableFuture.completedFuture(new Station());
 		}
 
 	}

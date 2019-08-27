@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +15,10 @@ import com.ordocorvi.eve.evegraphql.dto.Star;
 import com.ordocorvi.eve.evegraphql.dto.Stargate;
 import com.ordocorvi.eve.evegraphql.dto.Station;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class SystemResolver implements GraphQLResolver<com.ordocorvi.eve.evegraphql.dto.System> {
 	@Autowired
 	private CrestDao crestDao;
@@ -40,14 +41,18 @@ public class SystemResolver implements GraphQLResolver<com.ordocorvi.eve.evegrap
 	
 	public List<Station> getStationList(com.ordocorvi.eve.evegraphql.dto.System system) throws InterruptedException, ExecutionException {
 		List<Station> stations = new ArrayList<Station>();
-		List<CompletableFuture<Station>> futures = new ArrayList<>();
-		for (Long stationId : system.getStationIds()) {
-			futures.add(crestDao.getStationById(stationId));
-		}
-		for (CompletableFuture<Station> station : futures) {
-			stations.add(station.get());
+		if (system.getStationIds() != null) {
+			List<CompletableFuture<Station>> futures = new ArrayList<>();
+			for (Long stationId : system.getStationIds()) {
+				CompletableFuture<Station> aFutureToBelieveIn = crestDao.getStationById(stationId);
+				futures.add(aFutureToBelieveIn);
+			}
+			for (CompletableFuture<Station> station : futures) {
+				stations.add(station.get());
+			}
 		}
 		return stations;
+		
 	}
 
 }
